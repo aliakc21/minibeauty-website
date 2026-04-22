@@ -645,6 +645,69 @@
       box-shadow: var(--shadow-sm);
     }
 
+    /* ---------- About ---------- */
+    .about {
+      margin-top: 40px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .about h2 .accent {
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .about p {
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 14px;
+    }
+    .about .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+      max-width: 640px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hl {
+      padding: 14px 12px;
+      border-radius: 14px;
+      background: var(--pink-50);
+      border: 1px solid rgba(233, 30, 99, 0.08);
+    }
+    .hl-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+      color: #fff;
+      display: grid; place-items: center;
+      margin: 0 auto 8px;
+    }
+    .hl-icon svg { width: 16px; height: 16px; }
+    .hl strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .hl span {
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
     /* ---------- FAQ ---------- */
     .faq {
       margin-top: 40px;
@@ -833,6 +896,43 @@
         <p>Çalışmalarımızı ve güncel paylaşımlarımızı Instagram'dan takip edin.</p>
         <span class="value">@minibeautycom</span>
       </a>
+    </section>
+
+    <!-- About -->
+    <section class="about" aria-label="Mini Beauty Hakkında">
+      <h2>Güzelliğinize <span class="accent">özen gösteriyoruz</span></h2>
+      <p>
+        <strong>Mini Beauty</strong>, Ankara İncek'te konumlanan modern güzellik salonumuzda
+        alanında uzman ekibimizle lazer epilasyon, cilt bakımı, bölgesel zayıflama,
+        kalıcı makyaj ve tırnak bakımı hizmetleri sunuyoruz. Çayyolu ve Ümitköy başta olmak üzere
+        Ankara'nın her noktasından kolay ulaşım imkânı ile misafirlerimizi ağırlıyoruz.
+      </p>
+      <p>
+        Her cilt tipi için özelleştirilmiş uygulamalar, hijyenik ortam ve güncel teknoloji
+        donanımımızla kaliteli bir bakım deneyimi yaşamanızı sağlıyoruz.
+      </p>
+      <div class="highlights">
+        <div class="hl">
+          <div class="hl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <strong>Uzman Ekip</strong>
+          <span>Deneyimli kadro</span>
+        </div>
+        <div class="hl">
+          <div class="hl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <strong>Hızlı Randevu</strong>
+          <span>WhatsApp'tan saniyeler içinde</span>
+        </div>
+        <div class="hl">
+          <div class="hl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <strong>Hijyenik Ortam</strong>
+          <span>Sterilize cihazlar</span>
+        </div>
+        <div class="hl">
+          <div class="hl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <strong>İncek Merkez</strong>
+          <span>Kolay ulaşım</span>
+        </div>
+      </div>
     </section>
 
     <!-- Services (SEO keywords) -->
