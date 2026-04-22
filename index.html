@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Beauty — Güzellik & Bakım</title>
+  <meta name="description" content="Mini Beauty resmi sayfası. Randevu ve iletişim için bize ulaşın." />
+  <meta name="theme-color" content="#E91E63" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mini Beauty" />
+  <meta property="og:description" content="Güzellik ve bakım için Mini Beauty. Randevu için WhatsApp veya Instagram üzerinden ulaşın." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.minibeauty.com.tr" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --pink-50:  #FFF1F5;
+      --pink-100: #FFE4EC;
+      --pink-300: #F7A8C2;
+      --pink-500: #E91E63;
+      --pink-700: #AD1457;
+      --rose:     #C2185B;
+      --ink:      #1E1E23;
+      --ink-soft: #5A5A66;
+      --line:     rgba(0,0,0,0.08);
+      --whatsapp: #25D366;
+      --whatsapp-dark: #128C7E;
+      --android:  #3DDC84;
+      --android-dark: #2BB673;
+      --shadow-sm: 0 2px 10px rgba(173, 20, 87, 0.08);
+      --shadow-md: 0 10px 30px rgba(173, 20, 87, 0.12);
+      --shadow-lg: 0 20px 50px rgba(173, 20, 87, 0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1000px 600px at 90% -10%, #FFD6E4 0%, transparent 60%),
+        radial-gradient(900px 700px at -10% 110%, #FFE4EC 0%, transparent 55%),
+        linear-gradient(180deg, #FFF8FB 0%, #FFFFFF 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      padding: 28px 0 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--pink-700);
+      letter-spacing: 0.2px;
+    }
+    .brand-mark {
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-300));
+      display: grid; place-items: center;
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-mark svg { width: 20px; height: 20px; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 70px 0 50px;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      background: var(--pink-100);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 7vw, 76px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .tagline {
+      margin: 22px auto 0;
+      max-width: 620px;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    /* ---------- CTAs ---------- */
+    .cta-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+    .btn svg { width: 20px; height: 20px; }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+    }
+    .btn-whatsapp:hover { background: var(--whatsapp-dark); }
+
+    .btn-instagram {
+      background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+      color: #fff;
+    }
+
+    .btn-android {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-android:hover { background: #000; }
+    .btn-android .apk-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--android);
+      color: #0a2414;
+      margin-left: 2px;
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    /* ---------- Download strip ---------- */
+    .download {
+      margin-top: 44px;
+      padding: 26px 28px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #1e1e23 0%, #2a2a33 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-md);
+    }
+    .download-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .download-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--android);
+      display: grid; place-items: center;
+      color: #0a2414;
+      flex-shrink: 0;
+    }
+    .download-icon svg { width: 28px; height: 28px; }
+    .download-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .download-text p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: var(--android);
+      color: #0a2414;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform .15s ease, background .2s ease;
+      white-space: nowrap;
+    }
+    .download-btn:hover { background: #45e691; transform: translateY(-1px); }
+    .download-btn svg { width: 18px; height: 18px; }
+
+    /* ---------- Cards ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 60px 0 40px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      color: #fff;
+    }
+    .card-icon svg { width: 22px; height: 22px; }
+    .card-icon.ig {
+      background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+    }
+    .card-icon.wa { background: var(--whatsapp); }
+    .card-icon.phone { background: linear-gradient(135deg, var(--pink-500), var(--pink-700)); }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .card p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .card .value {
+      font-weight: 500;
+      color: var(--pink-700);
+      font-size: 15px;
+      margin-top: 4px;
+    }
+
+    /* ---------- Instagram preview ---------- */
+    .ig-section {
+      margin-top: 30px;
+      padding: 36px 28px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .ig-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .ig-avatar {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+      padding: 3px;
+    }
+    .ig-avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: #fff;
+      display: grid; place-items: center;
+      font-family: 'Playfair Display', serif;
+      color: var(--pink-700);
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .ig-handle {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--ink);
+    }
+    .ig-sub {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .ig-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--pink-100), var(--pink-300));
+      display: grid; place-items: center;
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s ease;
+    }
+    .ig-tile:hover { transform: scale(1.02); }
+    .ig-tile svg { width: 28px; height: 28px; opacity: .9; }
+    .ig-tile:nth-child(2) { background: linear-gradient(135deg, #f8bbd0, #ec407a); }
+    .ig-tile:nth-child(3) { background: linear-gradient(135deg, #f48fb1, #ad1457); }
+    .ig-tile:nth-child(4) { background: linear-gradient(135deg, #fce4ec, #f06292); }
+    .ig-tile:nth-child(5) { background: linear-gradient(135deg, #f8bbd0, #d81b60); }
+    .ig-tile:nth-child(6) { background: linear-gradient(135deg, #fff0f5, #e91e63); }
+
+    .ig-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 70px;
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+    footer .sep { margin: 0 8px; opacity: .5; }
+
+    /* ---------- Location ---------- */
+    .location {
+      margin-top: 40px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 22px;
+    }
+    .location-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+      display: grid; place-items: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .location-icon svg { width: 26px; height: 26px; }
+    .location-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .location-text p {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .location-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--pink-500);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: background .2s ease, transform .15s ease;
+    }
+    .location-btn:hover { background: var(--pink-700); transform: translateY(-1px); }
+    .location-btn svg { width: 16px; height: 16px; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 50px 0 30px; }
+      .tagline { font-size: 16px; }
+      .ig-section { padding: 24px 18px; }
+      .ig-grid { gap: 6px; }
+      .location {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <nav class="nav">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </span>
+          Mini Beauty
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="eyebrow">Güzellik & Bakım</span>
+      <h1>Kendinize<br/><span class="accent">iyi bakın</span>.</h1>
+      <p class="tagline">
+        Mini Beauty'ye hoş geldiniz. Randevu ve bilgi için bize WhatsApp veya Instagram üzerinden ulaşabilirsiniz.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-whatsapp" href="https://wa.me/905394066464?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.599 5.351zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.296-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          WhatsApp ile Yaz
+        </a>
+        <a class="btn btn-instagram" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.053 1.805.25 2.227.415.56.217.96.477 1.38.896.42.42.68.82.896 1.38.164.422.361 1.057.413 2.227.058 1.266.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.052 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.38-.42.42-.82.68-1.38.896-.422.164-1.057.361-2.227.413-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.052-1.805-.249-2.227-.413a3.72 3.72 0 0 1-1.38-.896 3.72 3.72 0 0 1-.896-1.38c-.164-.422-.361-1.057-.413-2.227-.058-1.266-.07-1.645-.07-4.85s.012-3.584.07-4.85c.052-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.38.42-.42.82-.68 1.38-.896.422-.164 1.057-.361 2.227-.413C8.416 2.212 8.796 2.2 12 2.2zm0-2.2C8.735 0 8.332.014 7.052.072 5.775.13 4.905.333 4.14.63a5.9 5.9 0 0 0-2.134 1.39A5.9 5.9 0 0 0 .63 4.14C.333 4.905.131 5.775.072 7.052.014 8.332 0 8.735 0 12s.014 3.668.072 4.948c.059 1.277.261 2.147.558 2.913.307.789.718 1.459 1.39 2.134a5.9 5.9 0 0 0 2.133 1.39c.765.297 1.635.499 2.912.558C8.332 23.986 8.735 24 12 24s3.668-.014 4.948-.072c1.277-.059 2.147-.261 2.912-.558a5.9 5.9 0 0 0 2.134-1.39 5.9 5.9 0 0 0 1.39-2.134c.297-.766.499-1.636.558-2.913.058-1.28.072-1.683.072-4.948s-.014-3.668-.072-4.948c-.059-1.277-.261-2.147-.558-2.912a5.9 5.9 0 0 0-1.39-2.134A5.9 5.9 0 0 0 19.86.63C19.095.333 18.225.131 16.948.072 15.668.014 15.265 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+          Instagram'da Takip Et
+        </a>
+      </div>
+    </section>
+
+    <!-- Instagram preview -->
+    <section class="ig-section">
+      <a href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+        <div class="ig-header">
+          <div class="ig-avatar">
+            <div class="ig-avatar-inner">M</div>
+          </div>
+          <div>
+            <div class="ig-handle">@minibeautycom</div>
+            <div class="ig-sub">Instagram sayfamızı ziyaret edin</div>
+          </div>
+        </div>
+      </a>
+
+      <div class="ig-grid">
+        <a class="ig-tile" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.053 1.805.25 2.227.415.56.217.96.477 1.38.896.42.42.68.82.896 1.38.164.422.361 1.057.413 2.227.058 1.266.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.052 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.38-.42.42-.82.68-1.38.896-.422.164-1.057.361-2.227.413-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.052-1.805-.249-2.227-.413a3.72 3.72 0 0 1-1.38-.896 3.72 3.72 0 0 1-.896-1.38c-.164-.422-.361-1.057-.413-2.227-.058-1.266-.07-1.645-.07-4.85s.012-3.584.07-4.85c.052-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.38.42-.42.82-.68 1.38-.896.422-.164 1.057-.361 2.227-.413C8.416 2.212 8.796 2.2 12 2.2z"/></svg>
+        </a>
+        <a class="ig-tile" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </a>
+        <a class="ig-tile" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
+        </a>
+        <a class="ig-tile" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+        </a>
+        <a class="ig-tile" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.053 1.805.25 2.227.415.56.217.96.477 1.38.896.42.42.68.82.896 1.38.164.422.361 1.057.413 2.227.058 1.266.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.052 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.38-.42.42-.82.68-1.38.896-.422.164-1.057.361-2.227.413-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.052-1.805-.249-2.227-.413a3.72 3.72 0 0 1-1.38-.896 3.72 3.72 0 0 1-.896-1.38c-.164-.422-.361-1.057-.413-2.227-.058-1.266-.07-1.645-.07-4.85s.012-3.584.07-4.85c.052-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.38.42-.42.82-.68 1.38-.896.422-.164 1.057-.361 2.227-.413z"/></svg>
+        </a>
+        <a class="ig-tile" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </a>
+      </div>
+
+      <div class="ig-cta">
+        <a class="btn btn-instagram" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.053 1.805.25 2.227.415.56.217.96.477 1.38.896.42.42.68.82.896 1.38.164.422.361 1.057.413 2.227.058 1.266.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.052 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.38-.42.42-.82.68-1.38.896-.422.164-1.057.361-2.227.413-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.052-1.805-.249-2.227-.413a3.72 3.72 0 0 1-1.38-.896 3.72 3.72 0 0 1-.896-1.38c-.164-.422-.361-1.057-.413-2.227-.058-1.266-.07-1.645-.07-4.85s.012-3.584.07-4.85c.052-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.38.42-.42.82-.68 1.38-.896.422-.164 1.057-.361 2.227-.413z"/></svg>
+          Instagram'da Aç
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact cards -->
+    <section class="cards">
+      <a class="card" href="https://wa.me/905394066464?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener">
+        <div class="card-icon wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>Randevu ve bilgi için mesaj atın, en kısa sürede dönüş yapalım.</p>
+        <span class="value">+90 539 406 64 64</span>
+      </a>
+
+      <a class="card" href="tel:+905394066464">
+        <div class="card-icon phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h3>Telefon</h3>
+        <p>Bizi doğrudan arayarak da randevu oluşturabilirsiniz.</p>
+        <span class="value">+90 539 406 64 64</span>
+      </a>
+
+      <a class="card" href="https://instagram.com/minibeautycom" target="_blank" rel="noopener">
+        <div class="card-icon ig">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.053 1.805.25 2.227.415.56.217.96.477 1.38.896.42.42.68.82.896 1.38.164.422.361 1.057.413 2.227.058 1.266.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.052 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.38-.42.42-.82.68-1.38.896-.422.164-1.057.361-2.227.413-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.052-1.805-.249-2.227-.413a3.72 3.72 0 0 1-1.38-.896 3.72 3.72 0 0 1-.896-1.38c-.164-.422-.361-1.057-.413-2.227-.058-1.266-.07-1.645-.07-4.85s.012-3.584.07-4.85c.052-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.38.42-.42.82-.68 1.38-.896.422-.164 1.057-.361 2.227-.413z"/></svg>
+        </div>
+        <h3>Instagram</h3>
+        <p>Çalışmalarımızı ve güncel paylaşımlarımızı Instagram'dan takip edin.</p>
+        <span class="value">@minibeautycom</span>
+      </a>
+    </section>
+
+    <!-- Location -->
+    <section class="location">
+      <div class="location-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div class="location-text">
+        <h3>Adres</h3>
+        <p>Şehit Savcı Mehmet Selim Kiraz Bulvarı No:250/1<br/>İncek · Ankara</p>
+      </div>
+      <a class="location-btn" href="https://www.google.com/maps/search/?api=1&query=Mini+Beauty+%C4%B0ncek+Ankara" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+        </svg>
+        Yol Tarifi Al
+      </a>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Mini Beauty <span class="sep">·</span> Tüm hakları saklıdır.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

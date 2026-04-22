@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Beauty — Android Uygulaması</title>
+  <meta name="description" content="Mini Beauty Android uygulamasını indirin." />
+  <meta name="theme-color" content="#E91E63" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --pink-100: #FFE4EC;
+      --pink-500: #E91E63;
+      --pink-700: #AD1457;
+      --ink:      #1E1E23;
+      --ink-soft: #5A5A66;
+      --line:     rgba(0,0,0,0.08);
+      --android:  #3DDC84;
+      --android-dark: #2BB673;
+      --shadow-sm: 0 2px 10px rgba(173, 20, 87, 0.08);
+      --shadow-md: 0 10px 30px rgba(173, 20, 87, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 600px at 90% -10%, #FFD6E4 0%, transparent 60%),
+        radial-gradient(800px 700px at -10% 110%, #FFE4EC 0%, transparent 55%),
+        linear-gradient(180deg, #FFF8FB 0%, #FFFFFF 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    header { padding: 28px 0 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 22px; color: var(--pink-700);
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--pink-500), #F7A8C2);
+      display: grid; place-items: center; color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-mark svg { width: 20px; height: 20px; }
+    .back-link {
+      font-size: 13px; color: var(--ink-soft);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .back-link:hover { color: var(--pink-700); }
+
+    .hero { padding: 60px 0 30px; text-align: center; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+      color: #0a2414;
+      background: rgba(61, 220, 132, 0.18);
+      padding: 6px 14px; border-radius: 999px;
+      font-weight: 600; margin-bottom: 22px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5.5vw, 56px);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.5px;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .tagline {
+      margin: 18px auto 0; max-width: 520px;
+      font-size: 16px; line-height: 1.6; color: var(--ink-soft); font-weight: 300;
+    }
+
+    /* Download card */
+    .download {
+      margin-top: 36px;
+      padding: 36px 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1e1e23 0%, #2a2a33 100%);
+      color: #fff;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .download-icon {
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      background: var(--android);
+      display: grid; place-items: center;
+      color: #0a2414;
+      margin: 0 auto 18px;
+    }
+    .download-icon svg { width: 38px; height: 38px; }
+    .download h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px; font-weight: 500; margin-bottom: 8px;
+    }
+    .download p.small {
+      font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55;
+      max-width: 420px; margin: 0 auto;
+    }
+    .download-btn {
+      margin-top: 22px;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 28px;
+      border-radius: 999px;
+      background: var(--android); color: #0a2414;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, background .2s ease;
+    }
+    .download-btn:hover { background: #45e691; transform: translateY(-1px); }
+    .download-btn svg { width: 18px; height: 18px; }
+    .version-note {
+      margin-top: 14px;
+      font-size: 12px; color: rgba(255,255,255,0.5);
+    }
+
+    /* Install guide */
+    .guide {
+      margin-top: 36px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 500;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+    .steps {
+      display: grid; gap: 18px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--pink-100); color: var(--pink-700);
+      display: grid; place-items: center;
+      font-weight: 600; font-size: 14px;
+    }
+    .step-text {
+      font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+    }
+    .step-text strong { color: var(--ink); font-weight: 500; }
+
+    .warn {
+      margin-top: 22px;
+      padding: 14px 16px;
+      background: #FFF8E6;
+      border: 1px solid #FFE4A3;
+      border-radius: 12px;
+      font-size: 13px; color: #8B6914;
+      line-height: 1.5;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .warn svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    footer {
+      margin-top: 50px;
+      padding: 24px 0 40px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+    footer a { color: var(--pink-700); text-decoration: none; }
+    footer .sep { margin: 0 8px; opacity: .5; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 40px 0 20px; }
+      .download { padding: 28px 20px; }
+      .guide { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="nav">
+        <a class="brand" href="../">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </span>
+          Mini Beauty
+        </a>
+        <a class="back-link" href="../">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Ana sayfa
+        </a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">Android</span>
+      <h1>Mini Beauty <span class="accent">uygulaması</span></h1>
+      <p class="tagline">
+        Randevularınızı yönetmek için Mini Beauty Android uygulamasını doğrudan cihazınıza indirin.
+      </p>
+    </section>
+
+    <section class="download">
+      <div class="download-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.523 15.341a.96.96 0 1 1 0-1.92.96.96 0 0 1 0 1.92m-11.046 0a.96.96 0 1 1 0-1.92.96.96 0 0 1 0 1.92m11.39-6.03l1.918-3.32a.4.4 0 0 0-.146-.546.4.4 0 0 0-.546.146l-1.94 3.362a12 12 0 0 0-4.899-1.053c-1.744 0-3.403.373-4.899 1.053L5.415 5.59a.4.4 0 0 0-.546-.146.4.4 0 0 0-.546.146l1.918 3.32C3.342 11.11 1.05 14.424.75 18.348h22.5c-.3-3.924-2.592-7.238-5.883-9.037"/>
+        </svg>
+      </div>
+      <h2>Android için indir</h2>
+      <p class="small">APK dosyasını cihazınıza indirip kurarak Mini Beauty uygulamasını kullanmaya başlayabilirsiniz.</p>
+      <a class="download-btn" href="https://github.com/aliakc21/minibeauty-support/releases/latest/download/MiniBeauty.apk" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        APK İndir
+      </a>
+      <div class="version-note">En güncel sürüm · github.com/aliakc21/minibeauty-support</div>
+    </section>
+
+    <section class="guide">
+      <h3>Kurulum Adımları</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Yukarıdaki <strong>APK İndir</strong> butonuna basın, dosya cihazınıza inecek.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">İndirme tamamlanınca bildirime veya <strong>İndirilenler</strong> klasöründeki dosyaya dokunun.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Android "bilinmeyen kaynaklardan yükleme" izni isterse <strong>Ayarlar</strong>'a gidip izin verin, ardından geri dönün.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Yükle</strong>'ye dokunun ve kurulumun tamamlanmasını bekleyin.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-text">Uygulamayı açın ve Mini Beauty hesabınızla giriş yapın.</div>
+        </div>
+      </div>
+
+      <div class="warn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <div>APK yalnızca resmi Mini Beauty kaynağından indirilmektedir. Başka kaynaklardan indirmeyin.</div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="../">← Ana sayfaya dön</a>
+      <span class="sep">·</span>
+      © <span id="year"></span> Mini Beauty
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
