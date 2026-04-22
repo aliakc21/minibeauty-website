@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.minibeauty.com.tr/</loc>
     <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.minibeauty.com.tr/og-image.svg</image:loc>
+      <image:title>Mini Beauty — Ankara İncek Güzellik Salonu</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -25,7 +25,10 @@
   <meta property="og:url" content="https://www.minibeauty.com.tr/" />
   <meta property="og:locale" content="tr_TR" />
   <meta property="og:site_name" content="Mini Beauty" />
-  <meta property="og:image" content="https://www.minibeauty.com.tr/og-image.jpg" />
+  <meta property="og:image" content="https://www.minibeauty.com.tr/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mini Beauty — Ankara İncek Güzellik Salonu" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -103,11 +106,100 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://www.minibeauty.com.tr/#website",
     "url": "https://www.minibeauty.com.tr/",
     "name": "Mini Beauty",
-    "inLanguage": "tr-TR"
+    "inLanguage": "tr-TR",
+    "publisher": { "@id": "https://www.minibeauty.com.tr/#business" }
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.minibeauty.com.tr/#organization",
+    "name": "Mini Beauty",
+    "url": "https://www.minibeauty.com.tr/",
+    "logo": "https://www.minibeauty.com.tr/logo.png",
+    "sameAs": [ "https://instagram.com/minibeautycom" ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+905394066464",
+      "contactType": "customer service",
+      "areaServed": "TR",
+      "availableLanguage": ["Turkish"]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://www.minibeauty.com.tr/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Mini Beauty nerede?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mini Beauty, Ankara İncek'te Şehit Savcı Mehmet Selim Kiraz Bulvarı No:250/1 adresinde hizmet vermektedir. Çayyolu, Ümitköy ve İncek'ten kolayca ulaşabilirsiniz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Randevu nasıl alınır?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Randevu için WhatsApp üzerinden +90 539 406 64 64 numaralı telefondan yazabilir, telefonla arayabilir veya Instagram @minibeautycom üzerinden mesaj gönderebilirsiniz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hangi hizmetler sunuluyor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mini Beauty'de lazer epilasyon, cilt bakımı, bölgesel zayıflama, kalıcı makyaj, microblading, manikür, pedikür, ağda ve G5 masaj hizmetleri sunulmaktadır."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Çalışma saatleri nedir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pazartesi - Cumartesi 10:00 - 20:00 saatleri arasında hizmet vermekteyiz. Pazar günleri randevu için WhatsApp üzerinden iletişime geçebilirsiniz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Lazer epilasyon güvenli mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evet. Mini Beauty'de kullanılan lazer epilasyon cihazları FDA onaylı ve alanında uzman ekip tarafından uygulanmaktadır. İşlem öncesi ücretsiz cilt analizi yapılmaktadır."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicons & PWA -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Preload hints -->
+  <link rel="preload" as="image" href="/og-image.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -553,6 +645,56 @@
       box-shadow: var(--shadow-sm);
     }
 
+    /* ---------- FAQ ---------- */
+    .faq {
+      margin-top: 40px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .faq details {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 4px;
+    }
+    .faq details:last-child { border-bottom: none; }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--ink);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+";
+      color: var(--pink-500);
+      font-size: 20px;
+      font-weight: 400;
+      transition: transform .2s ease;
+    }
+    .faq details[open] summary::after {
+      content: "−";
+    }
+    .faq details p {
+      margin-top: 10px;
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
     /* Visually-hidden but SEO-readable */
     .sr-only {
       position: absolute;
@@ -707,6 +849,31 @@
         <span class="pill">Ağda</span>
         <span class="pill">G5 Masaj</span>
       </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" aria-label="Sık Sorulan Sorular">
+      <h2>Sık Sorulan Sorular</h2>
+      <details>
+        <summary>Mini Beauty nerede?</summary>
+        <p>Mini Beauty, Ankara İncek'te <strong>Şehit Savcı Mehmet Selim Kiraz Bulvarı No:250/1</strong> adresinde hizmet vermektedir. Çayyolu, Ümitköy ve İncek'ten kolayca ulaşabilirsiniz.</p>
+      </details>
+      <details>
+        <summary>Randevu nasıl alabilirim?</summary>
+        <p>Randevu için <a href="https://wa.me/905394066464" target="_blank" rel="noopener">WhatsApp</a> üzerinden yazabilir, <a href="tel:+905394066464">+90 539 406 64 64</a> numarasını arayabilir veya <a href="https://instagram.com/minibeautycom" target="_blank" rel="noopener">Instagram @minibeautycom</a> üzerinden mesaj gönderebilirsiniz.</p>
+      </details>
+      <details>
+        <summary>Hangi hizmetleri sunuyorsunuz?</summary>
+        <p>Lazer epilasyon, cilt bakımı, bölgesel zayıflama, kalıcı makyaj ve microblading, manikür ve pedikür, ağda ile G5 masaj hizmetleri sunmaktayız.</p>
+      </details>
+      <details>
+        <summary>Çalışma saatleri nedir?</summary>
+        <p>Pazartesi – Cumartesi <strong>10:00 – 20:00</strong> saatleri arasında hizmet vermekteyiz. Pazar günleri için WhatsApp üzerinden iletişime geçebilirsiniz.</p>
+      </details>
+      <details>
+        <summary>Lazer epilasyon güvenli mi?</summary>
+        <p>Evet. Mini Beauty'de kullanılan lazer epilasyon cihazları uluslararası standartlarda olup, alanında uzman ekip tarafından uygulanmaktadır. İşlem öncesi ücretsiz cilt analizi yapılmaktadır.</p>
+      </details>
     </section>
 
     <!-- Location -->

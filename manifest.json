@@ -1,0 +1,13 @@
+{
+  "name": "Mini Beauty",
+  "short_name": "Mini Beauty",
+  "description": "Ankara İncek güzellik salonu — lazer epilasyon, cilt bakımı, bölgesel zayıflama, kalıcı makyaj.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8FB",
+  "theme_color": "#E91E63",
+  "lang": "tr",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
