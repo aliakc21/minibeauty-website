@@ -675,11 +675,14 @@
     }
     .about .highlights {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
       margin-top: 26px;
-      max-width: 640px;
+      max-width: 720px;
       margin-left: auto; margin-right: auto;
+    }
+    @media (max-width: 640px) {
+      .about .highlights { grid-template-columns: repeat(2, 1fr); }
     }
     .hl {
       padding: 14px 12px;
@@ -758,26 +761,11 @@
       line-height: 1.65;
     }
 
-    /* Hide Elfsight free branding badge */
+    /* Hide only Elfsight free branding badge — not the feed itself */
     [class*="elfsight-app-"] a[href*="elfsight.com"],
-    [class*="elfsight-app-"] [class*="link-eapps"],
-    [class*="elfsight-app-"] [class*="eapps-link"],
-    [class*="elfsight-app-"] [class*="promo-badge"],
-    [class*="elfsight-app-"] [class*="free-badge"],
-    [class*="elfsight-app-"] [class*="tooltip"],
-    [class*="elfsight-app-"] [class*="watermark"],
-    [class*="elfsight-app-"] [class*="branding"],
-    div[id^="eapps-"] a[href*="elfsight"],
-    .eapps-link,
-    [data-id*="eapps"]:has(a[href*="elfsight"]) {
+    [class*="elfsight-app-"] a[href*="elfsight.com"] + *,
+    .eapps-link {
       display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      pointer-events: none !important;
-      position: absolute !important;
-      left: -9999px !important;
     }
 
     /* Visually-hidden but SEO-readable */
@@ -1009,24 +997,21 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Hide Elfsight free branding
+    // Hide only Elfsight branding link (precise, feed stays intact)
     (function() {
       const clean = () => {
-        document.querySelectorAll('a[href*="elfsight.com"], [class*="eapps-link"], [class*="eapps-widget-toolbar"]').forEach(el => {
-          const tgt = el.closest('[class*="eapps"]') || el;
-          tgt.style.display = 'none';
-          tgt.remove && tgt.remove();
-        });
-        // Also hide any tooltip/badge with specific text
-        document.querySelectorAll('[class*="elfsight-app-"] *').forEach(el => {
-          if (el.textContent && /free instagram feed widget|powered by elfsight|made with elfsight/i.test(el.textContent) && el.children.length <= 2) {
-            el.style.display = 'none';
+        document.querySelectorAll('a[href*="elfsight.com"]').forEach(el => {
+          el.style.display = 'none';
+          // Also hide immediate badge container if small
+          const p = el.parentElement;
+          if (p && p.children.length <= 3 && /free instagram feed widget|elfsight/i.test(p.textContent || '')) {
+            p.style.display = 'none';
           }
         });
       };
+      clean();
       const observer = new MutationObserver(clean);
       observer.observe(document.body, { childList: true, subtree: true });
-      setInterval(clean, 2000);
     })();
   </script>
 </body>
