@@ -758,6 +758,28 @@
       line-height: 1.65;
     }
 
+    /* Hide Elfsight free branding badge */
+    [class*="elfsight-app-"] a[href*="elfsight.com"],
+    [class*="elfsight-app-"] [class*="link-eapps"],
+    [class*="elfsight-app-"] [class*="eapps-link"],
+    [class*="elfsight-app-"] [class*="promo-badge"],
+    [class*="elfsight-app-"] [class*="free-badge"],
+    [class*="elfsight-app-"] [class*="tooltip"],
+    [class*="elfsight-app-"] [class*="watermark"],
+    [class*="elfsight-app-"] [class*="branding"],
+    div[id^="eapps-"] a[href*="elfsight"],
+    .eapps-link,
+    [data-id*="eapps"]:has(a[href*="elfsight"]) {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      pointer-events: none !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+
     /* Visually-hidden but SEO-readable */
     .sr-only {
       position: absolute;
@@ -799,7 +821,7 @@
     <!-- Hero -->
     <section class="hero">
       <span class="eyebrow">Ankara İncek Güzellik Salonu</span>
-      <h1>Kendinize<br/><span class="accent">iyi bakın</span>.</h1>
+      <h1>Mini Dokunuş,<br/><span class="accent">Büyük Değişim</span>.</h1>
       <p class="tagline">
         <strong>Mini Beauty</strong> — Ankara İncek'te lazer epilasyon, cilt bakımı, bölgesel zayıflama ve kalıcı makyaj hizmetleri. Randevu için WhatsApp veya Instagram üzerinden ulaşın.
       </p>
@@ -986,6 +1008,26 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hide Elfsight free branding
+    (function() {
+      const clean = () => {
+        document.querySelectorAll('a[href*="elfsight.com"], [class*="eapps-link"], [class*="eapps-widget-toolbar"]').forEach(el => {
+          const tgt = el.closest('[class*="eapps"]') || el;
+          tgt.style.display = 'none';
+          tgt.remove && tgt.remove();
+        });
+        // Also hide any tooltip/badge with specific text
+        document.querySelectorAll('[class*="elfsight-app-"] *').forEach(el => {
+          if (el.textContent && /free instagram feed widget|powered by elfsight|made with elfsight/i.test(el.textContent) && el.children.length <= 2) {
+            el.style.display = 'none';
+          }
+        });
+      };
+      const observer = new MutationObserver(clean);
+      observer.observe(document.body, { childList: true, subtree: true });
+      setInterval(clean, 2000);
+    })();
   </script>
 </body>
 </html>
